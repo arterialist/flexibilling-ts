@@ -2,14 +2,19 @@
 
 ## Setup
 
+Use Node.js 22 or newer. CI currently verifies with Node.js 26 and TypeScript
+7.0.2.
+
 ```bash
-npm install
+npm ci
 ```
 
 Run the complete local checks before opening a change:
 
 ```bash
+npm run check:typescript
 npm run check
+npm run check:tests
 npm test
 npm run build
 ```
@@ -17,6 +22,10 @@ npm run build
 The tests cover exact-decimal rating, dotted metadata filters, waterfall
 fallbacks, zero-usage and insufficient-funds errors, ledger writes, product
 idempotency, sessions, snapshots, and charge/refund behavior.
+
+`tests/sqlite.integration.test.ts` is the minimal real-backend conformance
+test. It uses a temporary file-backed SQLite database and implements the
+exported repository/cache ports without changing the library implementation.
 
 ## Backend adapters
 

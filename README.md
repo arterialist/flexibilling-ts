@@ -72,10 +72,17 @@ console.log(await cache.getBalances("customer-1"));
 ## Development
 
 ```bash
-npm install
+npm ci
+npm run check:typescript
 npm run check
+npm run check:tests
 npm test
 npm run build
 ```
+
+The package requires Node.js 22 or newer and pins TypeScript 7 for builds.
+The SQLite integration test uses a file-backed `better-sqlite3` database to
+exercise the public repository and cache ports across service processing,
+workers, idempotent funding, refunds, and database reopen persistence.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for release and integration guidance.

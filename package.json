@@ -5,7 +5,7 @@
   "type": "module",
   "license": "Apache-2.0",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "files": [
     "dist"
@@ -19,14 +19,18 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "check": "tsc -p tsconfig.json --noEmit",
+    "check:tests": "tsc -p tsconfig.tests.json --noEmit",
+    "check:typescript": "node -e \"const version = require('typescript/package.json').version; if (!version.startsWith('7.')) throw new Error('TypeScript 7 is required, found ' + version)\"",
     "test": "tsx --test tests/*.test.ts"
   },
   "dependencies": {
-    "decimal.js": "^10.4.3"
+    "decimal.js": "10.6.0"
   },
   "devDependencies": {
-    "@types/node": "^22.10.0",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "@types/better-sqlite3": "9.6.0",
+    "@types/node": "26.2.0",
+    "better-sqlite3": "13.0.3",
+    "tsx": "4.23.12",
+    "typescript": "7.0.2"
   }
 }
