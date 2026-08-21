@@ -1,0 +1,36 @@
+{
+  "name": "flexibilling",
+  "version": "0.1.0",
+  "description": "Provider-agnostic usage metering and balance billing for TypeScript backends.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "check:tests": "tsc -p tsconfig.tests.json --noEmit",
+    "check:typescript": "node -e \"const version = require('typescript/package.json').version; if (!version.startsWith('7.')) throw new Error('TypeScript 7 is required, found ' + version)\"",
+    "test": "tsx --test tests/*.test.ts"
+  },
+  "dependencies": {
+    "decimal.js": "10.6.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "9.6.0",
+    "@types/node": "26.2.0",
+    "better-sqlite3": "13.0.3",
+    "tsx": "4.23.12",
+    "typescript": "7.0.2"
+  }
+}
