@@ -25,7 +25,7 @@ The package requires Node.js 22 or newer and builds with TypeScript 7.
 - [Operations](operations.md) covers transactions, retries, cache behavior, and production checks.
 - [Development and releases](development.md) covers local checks, CI, docs, and npm publishing.
 
-## Design guarantees
+## Behavior
 
 1. Billing decisions do not depend on a storage provider.
 2. Asset and service names are application-defined strings.

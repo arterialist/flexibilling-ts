@@ -1,7 +1,7 @@
 # Framework integrations
 
-The package has no required web framework. Bind billing to the host request
-layer explicitly.
+The package does not include framework glue. Bind billing to the host request
+layer at the point where the customer is authenticated.
 
 ## Request boundary
 
@@ -35,8 +35,8 @@ domain-specific response.
 
 ## Request wrappers
 
-JavaScript decorators are not required. Wrap an operation in a small function
-that calls `requireBalance`, `BillingService.charge`, or
+JavaScript decorators are optional. Wrap an operation in a function that calls
+`requireBalance`, `BillingService.charge`, or
 `withUsageSession`. This keeps the integration compatible with Express, Fastify,
 Hono, Next.js, and worker runtimes.
 

@@ -90,5 +90,5 @@ record when the operation throws.
 ## 5. Use a custom backend
 
 Implement `BillingRepository` and `UsageRepository` for the host database, and
-`BillingCache` for fast balance views. The engine does not require the in-memory
-classes in production.
+`BillingCache` for balance views. Use a database-backed implementation in
+production.

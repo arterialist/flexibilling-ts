@@ -5,13 +5,13 @@
 [![Docs](https://img.shields.io/badge/docs-online-blue.svg)](https://arterialist.github.io/flexibilling-ts/)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
-FlexiBilling is a provider-agnostic billing engine for TypeScript backends. It
+FlexiBilling is a billing engine for TypeScript backends. It
 tracks named balances, rates usage, applies priority rules, writes ledger
 entries, and processes pending usage records.
 
-The core package does not require a database, web framework, cache, or payment
-provider. Implement `BillingRepository` and `BillingCache` against an existing
-backend, or use the included in-memory adapters.
+The package leaves storage, web frameworks, caches, and payment providers to the
+host application. Implement `BillingRepository` and `BillingCache` against an
+existing backend, or use the included in-memory adapters.
 
 ## Install
 
@@ -85,14 +85,14 @@ await withUsageSession(
 That lets duration rules use a stable value while preserving backend metadata.
 Set `writeOnException: false` to skip a record when the operation throws.
 
-## What is included
+## Included components
 
 - `BillingService` funds accounts, rates usage, charges, refunds, and updates cache views.
 - `BillingRepository`, `UsageRepository`, and `BillingCache` define backend ports.
 - `RatingEngine` and `WaterfallEngine` calculate costs and select fundable rules.
 - `withUsageSession` records usage at an operation boundary.
-- `BillingWorker` processes pending records with retry-safe state transitions.
-- The in-memory adapters support tests and small local programs.
+- `BillingWorker` processes pending records and records each outcome.
+- The in-memory adapters are useful in tests and local programs.
 
 ## Documentation
 

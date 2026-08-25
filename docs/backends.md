@@ -38,8 +38,8 @@ class DatabaseRepository implements BillingRepository, UsageRepository {
 }
 ```
 
-The interfaces are intentionally wider than this example. TypeScript will
-check that the complete port is implemented.
+This is only the shape of the example. TypeScript still checks the complete
+port before the repository is passed to the service.
 
 ## In-memory adapters
 
